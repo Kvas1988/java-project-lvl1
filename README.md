@@ -4,4 +4,5 @@
 ![github actions](https://github.com/Kvas1988/java-project-lvl1/actions/workflows/java-ci.yml/badge.svg)
 
 ### Even Game:
-[![asciicast](https://asciinema.org/a/vCHgYa8wiqkr6tUxmX0Vf3w4B.svg)](https://asciinema.org/a/vCHgYa8wiqkr6tUxmX0Vf3w4B)
+[![asciicast](https://asciinema.org/a/vCHgYa8wiqkr6tUxmX0Vf3w4B.svg)](https://asciinema.org/a/vCHgYa8wiqkr6tUxmX0Vf3w4B?speed=2)
+[![asciicast](https://asciinema.org/a/gmayGssNm5fwlhDtDYMBQ4LQe.svg)](https://asciinema.org/a/gmayGssNm5fwlhDtDYMBQ4LQe?speed=2)
