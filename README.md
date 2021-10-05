@@ -5,4 +5,9 @@
 
 ### Even Game:
 [![asciicast](https://asciinema.org/a/vCHgYa8wiqkr6tUxmX0Vf3w4B.svg)](https://asciinema.org/a/vCHgYa8wiqkr6tUxmX0Vf3w4B?speed=2)
+
+### Calculator Game:
 [![asciicast](https://asciinema.org/a/gmayGssNm5fwlhDtDYMBQ4LQe.svg)](https://asciinema.org/a/gmayGssNm5fwlhDtDYMBQ4LQe?speed=2)
+
+### GCD:
+[![asciicast](https://asciinema.org/a/QAtvrPKwYTd7ockV5pPK1QnXG.svg)](https://asciinema.org/a/QAtvrPKwYTd7ockV5pPK1QnXG?speed=3)
