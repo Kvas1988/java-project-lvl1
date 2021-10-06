@@ -13,7 +13,7 @@ public class Calculator {
 
         char[] operators = {'-', '+', '*'};
         char operator = operators[(int) (Math.random() * operators.length)];
-        System.out.println("Question: " + num1 + operator + num2);
+        System.out.println("Question: " + num1 + " " + operator + " " + num2);
 
         int answer;
         if (operator == '-') {
