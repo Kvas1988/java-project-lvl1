@@ -2,11 +2,11 @@ package hexlet.code.games;
 
 public class Progression  {
 
-    public final void printRule() {
+    public static void printRule() {
         System.out.println("What number is missing in the progression?");
     }
 
-    public final Object generateQuestionAndAnswer() {
+    public static Object generateQuestionAndAnswer() {
         // generate length of progression
         final int minNumsInProgression = 5;
         final int maxNumsInProgression = 10;
@@ -36,13 +36,13 @@ public class Progression  {
         return hiddenNum;
     }
 
-    public final boolean checkAnswer(String userAnswer, Object correctAnswer) {
+    public static boolean checkAnswer(String userAnswer, Object correctAnswer) {
         int userAnswerInt = Integer.parseInt(userAnswer);
         int correctAnswerInt = (int) correctAnswer;
         return userAnswerInt == correctAnswerInt;
     }
 
-    private int[] generateProgression(int numsInProgression) {
+    private static int[] generateProgression(int numsInProgression) {
         int[] progression = new int[numsInProgression];
 
         final int maxFirstNum = 20;

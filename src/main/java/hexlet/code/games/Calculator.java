@@ -2,11 +2,11 @@ package hexlet.code.games;
 
 public class Calculator {
 
-    public final void printRule() {
+    public static void printRule() {
         System.out.println("What is the result of the expression?");
     }
 
-    public final Object generateQuestionAndAnswer() {
+    public static Object generateQuestionAndAnswer() {
         final int maxNumber = 10;
         int num1 = (int) (Math.random() * maxNumber);
         int num2 = (int) (Math.random() * maxNumber);
@@ -27,7 +27,7 @@ public class Calculator {
         return answer;
     }
 
-    public final boolean checkAnswer(String userAnswer, Object correctAnswer) {
+    public static boolean checkAnswer(String userAnswer, Object correctAnswer) {
         int userAnswerInt = Integer.parseInt(userAnswer);
         int correctAnswerInt = (int) correctAnswer;
         return userAnswerInt == correctAnswerInt;

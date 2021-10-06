@@ -1,11 +1,11 @@
 package hexlet.code.games;
 
 public class Prime  {
-    public final void printRule() {
+    public static void printRule() {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 
-    public final Object generateQuestionAndAnswer() {
+    public static Object generateQuestionAndAnswer() {
         final int maxNumber = 50;
         int num = (int) (Math.random() * maxNumber);
         System.out.println("Question: " + num);
@@ -13,11 +13,11 @@ public class Prime  {
         return isPrime(num);
     }
 
-    public final boolean checkAnswer(String userAnswer, Object correctAnswer) {
+    public static boolean checkAnswer(String userAnswer, Object correctAnswer) {
         return userAnswer.equals(correctAnswer);
     }
 
-    private String isPrime(int n) {
+    private static String isPrime(int n) {
         if (n <= 1) {
             return "no";
         }

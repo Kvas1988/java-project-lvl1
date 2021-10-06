@@ -1,11 +1,11 @@
 package hexlet.code.games;
 
 public class GreatestCommonDivisor  {
-    public final void printRule() {
+    public static void printRule() {
         System.out.println("Find the greatest common divisor of given numbers.");
     }
 
-    public final Object generateQuestionAndAnswer() {
+    public static Object generateQuestionAndAnswer() {
         final int maxNumber = 50;
         int num1 = (int) (Math.random() * maxNumber);
         int num2 = (int) (Math.random() * maxNumber);
@@ -14,13 +14,13 @@ public class GreatestCommonDivisor  {
         return euclidianGreatesCommonDivisor(num1, num2);
     }
 
-    public final boolean checkAnswer(String userAnswer, Object correctAnswer) {
+    public static boolean checkAnswer(String userAnswer, Object correctAnswer) {
         int userAnswerInt = Integer.parseInt(userAnswer);
         int correctAnswerInt = (int) correctAnswer;
         return userAnswerInt == correctAnswerInt;
     }
 
-    private int findGreatesCommonDivisor(int num1, int num2) {
+    private static int findGreatesCommonDivisor(int num1, int num2) {
         int gcd = 1;
 
         int max = Math.max(num1, num2);
@@ -33,7 +33,7 @@ public class GreatestCommonDivisor  {
         return gcd;
     }
 
-    private int euclidianGreatesCommonDivisor(int a, int b) {
+    private static int euclidianGreatesCommonDivisor(int a, int b) {
         if (a == 0) {
             return b;
         }
