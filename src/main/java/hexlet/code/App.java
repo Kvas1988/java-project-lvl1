@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Calculator;
 import hexlet.code.games.EvenGame;
 import hexlet.code.games.GreatestCommonDivisor;
+import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
 import java.util.Scanner;
@@ -16,6 +17,7 @@ class App {
         final int calcNum = 3;
         final int gcdNum = 4;
         final int progressionNum = 5;
+        final int primeNum = 6;
         final int exitNum = 0;
 
         Scanner sc = new Scanner(System.in);
@@ -28,6 +30,7 @@ class App {
         selectGameOutput.append(calcNum + " - Calculator\n");
         selectGameOutput.append(gcdNum + " - GCD\n");
         selectGameOutput.append(progressionNum + " - Progression\n");
+        selectGameOutput.append(primeNum + " - Prime\n");
         selectGameOutput.append(exitNum + " - Exit\n");
         selectGameOutput.append("Your choice: ");
         System.out.println(selectGameOutput.toString());
@@ -56,6 +59,9 @@ class App {
                 break;
             case progressionNum:
                 Engine.startGame(new Progression());
+                break;
+            case primeNum:
+                Engine.startGame(new Prime());
                 break;
             default:
                 break;
