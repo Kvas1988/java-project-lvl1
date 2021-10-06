@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-public class Calculator implements Game {
+public class Calculator {
 
     public final void printRule() {
         System.out.println("What is the result of the expression?");

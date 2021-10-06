@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-public class GreatestCommonDivisor implements Game {
+public class GreatestCommonDivisor  {
     public final void printRule() {
         System.out.println("Find the greatest common divisor of given numbers.");
     }

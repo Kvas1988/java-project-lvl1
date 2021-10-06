@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-public class Progression implements Game {
+public class Progression  {
 
     public final void printRule() {
         System.out.println("What number is missing in the progression?");

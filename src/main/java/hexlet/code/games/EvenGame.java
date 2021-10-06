@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-public class EvenGame implements Game {
+public class EvenGame {
 
     public final void printRule() {
         System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
