@@ -1,20 +1,34 @@
 package hexlet.code.games;
 
+import hexlet.code.App;
+import hexlet.code.Engine;
+
 public class EvenGame {
 
-    public static void printRule() {
-        System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
+    public static String getRule() {
+        return "Answer 'yes' if number even otherwise answer 'no'.";
     }
 
-    public static Object generateQuestionAndAnswer() {
+    public static String[] generateQuestionAndAnswer() {
         final int maxNumber = 100;
         int randomNumber = (int) (Math.random() * maxNumber);
-        System.out.println("Question: " + randomNumber);
+        String question = "Question: " + randomNumber;
 
-        return randomNumber % 2 == 0 ? "yes" : "no";
+        String answer = randomNumber % 2 == 0 ? "yes" : "no";
+
+        return new String[] {question, answer};
     }
 
-    public static boolean checkAnswer(String userAnswer, Object correctAnswer) {
-        return userAnswer.equals(correctAnswer);
+
+    public static void generateAndRunGame() {
+        String[][] rulesAndQuestions = new String[App.RULES_AND_QUESTIONS_NUM][2];
+
+        rulesAndQuestions[0] = new String[] {getRule(), null};
+
+        for (int i = 1; i < rulesAndQuestions.length; i++) {
+            rulesAndQuestions[i] = generateQuestionAndAnswer();
+        }
+
+        Engine.startGame(rulesAndQuestions);
     }
 }

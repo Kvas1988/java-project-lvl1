@@ -2,7 +2,13 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-class App {
+import hexlet.code.games.Calculator;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.GreatestCommonDivisor;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
+
+public class App {
 
     static final int GREET_NUM = 1;
     static final int EVEN_NUM = 2;
@@ -11,6 +17,8 @@ class App {
     static final int PROGRESSION_NUM = 5;
     static final int PRIME_NUM = 6;
     static final int EXIT_NUM = 0;
+
+    public static final int RULES_AND_QUESTIONS_NUM = 4;
 
     public static void main(String[] args) {
 
@@ -36,13 +44,28 @@ class App {
 
         System.out.print("\n");
 
-
-        if (gameNumber == GREET_NUM) {
-            String username = Cli.getUsername();
-        } else  if (gameNumber == EXIT_NUM) {
-            return;
-        } else {
-            Engine.startGame(gameNumber);
+        switch (gameNumber) {
+            case GREET_NUM:
+                String username = Cli.getUsername();
+                break;
+            case EVEN_NUM:
+                EvenGame.generateAndRunGame();
+                break;
+            case CALC_NUM:
+                Calculator.generateAndRunGame();
+                break;
+            case GCD_NUM:
+                GreatestCommonDivisor.generateAndRunGame();
+                break;
+            case PROGRESSION_NUM:
+                Progression.generateAndRunGame();
+                break;
+            case PRIME_NUM:
+                Prime.generateAndRunGame();
+                break;
+            default:
+                break;
         }
+
     }
 }

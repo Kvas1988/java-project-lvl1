@@ -1,12 +1,15 @@
 package hexlet.code.games;
 
+import hexlet.code.App;
+import hexlet.code.Engine;
+
 public class Progression  {
 
-    public static void printRule() {
-        System.out.println("What number is missing in the progression?");
+    public static String getRule() {
+        return "What number is missing in the progression?";
     }
 
-    public static Object generateQuestionAndAnswer() {
+    public static String[] generateQuestionAndAnswer() {
         // generate length of progression
         final int minNumsInProgression = 5;
         final int maxNumsInProgression = 10;
@@ -31,15 +34,20 @@ public class Progression  {
                 outputBuilder.append(" ");
             }
         }
-        System.out.println(outputBuilder);
 
-        return hiddenNum;
+        return new String[] {outputBuilder.toString(), Integer.toString(hiddenNum)};
     }
 
-    public static boolean checkAnswer(String userAnswer, Object correctAnswer) {
-        int userAnswerInt = Integer.parseInt(userAnswer);
-        int correctAnswerInt = (int) correctAnswer;
-        return userAnswerInt == correctAnswerInt;
+    public static void generateAndRunGame() {
+        String[][] rulesAndQuestions = new String[App.RULES_AND_QUESTIONS_NUM][2];
+
+        rulesAndQuestions[0] = new String[] {getRule(), null};
+
+        for (int i = 1; i < rulesAndQuestions.length; i++) {
+            rulesAndQuestions[i] = generateQuestionAndAnswer();
+        }
+
+        Engine.startGame(rulesAndQuestions);
     }
 
     private static int[] generateProgression(int numsInProgression) {
