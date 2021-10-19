@@ -31,15 +31,13 @@ public class Calculator {
     }
 
     public static void generateAndRunGame() {
-        String[][] rulesAndQuestions = new String[App.RULES_AND_QUESTIONS_NUM][2];
+        String[][] questions = new String[App.QUESTIONS_NUM][2];
 
-        rulesAndQuestions[0] = new String[] {getRule(), null};
-
-        for (int i = 1; i < rulesAndQuestions.length; i++) {
-            rulesAndQuestions[i] = generateQuestionAndAnswer();
+        for (int i = 0; i < questions.length; i++) {
+            questions[i] = generateQuestionAndAnswer();
         }
 
-        Engine.startGame(rulesAndQuestions);
+        Engine.startGame(getRule(), questions);
     }
 }
 

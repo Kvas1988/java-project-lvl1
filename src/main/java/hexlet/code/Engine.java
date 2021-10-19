@@ -4,22 +4,22 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static void startGame(String[][] rulesAndQuestions) {
+    public static void startGame(String rule, String[][] questions) {
 
         String username = Cli.getUsername();
 
         // print rule
-        System.out.println(rulesAndQuestions[0][0]);
+        System.out.println(rule);
 
-        final int maxCorrectAnswers = App.RULES_AND_QUESTIONS_NUM - 1;
+        final int maxCorrectAnswers = App.QUESTIONS_NUM;
         Scanner sc = new Scanner(System.in);
         int numOfCorrectAnswers = 0;
 
         // game loop
-        for (int i = 1; i < rulesAndQuestions.length; i++) {
+        for (int i = 0; i < questions.length; i++) {
 
-            String question = rulesAndQuestions[i][0];
-            String correctAnswer = rulesAndQuestions[i][1];
+            String question = questions[i][0];
+            String correctAnswer = questions[i][1];
 
             // print question
             System.out.println(question);

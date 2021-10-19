@@ -18,7 +18,7 @@ public class App {
     static final int PRIME_NUM = 6;
     static final int EXIT_NUM = 0;
 
-    public static final int RULES_AND_QUESTIONS_NUM = 4;
+    public static final int QUESTIONS_NUM = 3;
 
     public static void main(String[] args) {
 
