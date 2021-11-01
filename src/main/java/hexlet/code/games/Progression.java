@@ -2,40 +2,29 @@ package hexlet.code.games;
 
 import hexlet.code.App;
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Progression  {
 
+    private static final String RULE = "What number is missing in the progression?";
+
     public static String getRule() {
-        return "What number is missing in the progression?";
+        return RULE;
     }
 
     public static String[] generateQuestionAndAnswer() {
         // generate length of progression
-        final int minNumsInProgression = 5;
-        final int maxNumsInProgression = 10;
-        int numsInProgression = (int) ((Math.random() * (maxNumsInProgression - minNumsInProgression))
-                + minNumsInProgression);
+        int numsInProgression = Utils.generateRandomIntBetween(Utils.PROGRESSION_MIN_LEN, Utils.PROGRESSION_MAX_LEN);
 
         // generate progression and hide one element
         int[] progression = generateProgression(numsInProgression);
-        int hiddenNumIndex = (int) (Math.random() * (progression.length - 1));
+        int hiddenNumIndex = Utils.generateRandomInt(progression.length - 1);
         int hiddenNum = progression[hiddenNumIndex];
 
         // output
-        StringBuilder outputBuilder = new StringBuilder("Question: ");
-        for (int i = 0; i < progression.length; i++) {
-            if (i == hiddenNumIndex) {
-                outputBuilder.append("..");
-            } else {
-                outputBuilder.append(progression[i]);
-            }
+        String question = buildQuestion(progression, hiddenNumIndex);
 
-            if (i != progression.length - 1) {
-                outputBuilder.append(" ");
-            }
-        }
-
-        return new String[] {outputBuilder.toString(), Integer.toString(hiddenNum)};
+        return new String[] {question, Integer.toString(hiddenNum)};
     }
 
     public static void generateAndRunGame() {
@@ -51,17 +40,29 @@ public class Progression  {
     private static int[] generateProgression(int numsInProgression) {
         int[] progression = new int[numsInProgression];
 
-        final int maxFirstNum = 20;
-        final int maxAdd = 10;
-
-        int firstNum = (int) (Math.random() * maxFirstNum);
+        int firstNum = Utils.generateRandomInt(Utils.PROGRESSION_MAX_FIRST_NUM);
         progression[0] = firstNum;
-        int add = (int) (Math.random() * (maxAdd - 1) + 1);
-
+        int add = Utils.generateRandomIntBetween(1, Utils.PROGRESSION_MAX_ADD);
         for (int i = 1; i < progression.length; i++) {
             progression[i] = progression[i - 1] + add;
         }
 
         return progression;
+    }
+
+    private static String buildQuestion(int[] progression, int hiddenNumIndex) {
+        StringBuilder outputBuilder = new StringBuilder();
+        for (int i = 0; i < progression.length; i++) {
+            if (i == hiddenNumIndex) {
+                outputBuilder.append("..");
+            } else {
+                outputBuilder.append(progression[i]);
+            }
+
+            if (i != progression.length - 1) {
+                outputBuilder.append(" ");
+            }
+        }
+        return outputBuilder.toString();
     }
 }

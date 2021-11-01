@@ -2,18 +2,20 @@ package hexlet.code.games;
 
 import hexlet.code.App;
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Prime  {
+
+    private static final String RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
     public static String getRule() {
-        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        return RULE;
     }
 
     public static String[] generateQuestionAndAnswer() {
-        final int maxNumber = 50;
-        int num = (int) (Math.random() * maxNumber);
-        String question = "Question: " + num;
-
-        return new String[] {question, isPrime(num)};
+        int num = Utils.generateRandomInt(Utils.PRIME_MAX_NUMBER);
+        String answer = isPrime(num) ? "yes" : "no";
+        return new String[] {Integer.toString(num), answer};
     }
 
     public static void generateAndRunGame() {
@@ -26,17 +28,17 @@ public class Prime  {
         Engine.startGame(getRule(), questions);
     }
 
-    private static String isPrime(int n) {
+    private static boolean isPrime(int n) {
         if (n <= 1) {
-            return "no";
+            return false;
         }
 
         for (int i = 2; i < n; i++) {
             if (n % i == 0) {
-                return "no";
+                return false;
             }
         }
 
-        return "yes";
+        return true;
     }
 }

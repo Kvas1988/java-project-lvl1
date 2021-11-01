@@ -2,30 +2,29 @@ package hexlet.code.games;
 
 import hexlet.code.App;
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Calculator {
 
+    private static final String RULE = "What is the result of the expression?";
+    private static final String[] OPERATORS = {"-", "+", "*"};
+
     public static String getRule() {
-        return "What is the result of the expression?";
+        return RULE;
     }
 
     public static String[] generateQuestionAndAnswer() {
-        final int maxNumber = 10;
-        int num1 = (int) (Math.random() * maxNumber);
-        int num2 = (int) (Math.random() * maxNumber);
+        int num1 = Utils.generateRandomInt(Utils.CALC_MAX_NUMBER);
+        int num2 = Utils.generateRandomInt(Utils.CALC_MAX_NUMBER);
 
-        char[] operators = {'-', '+', '*'};
-        char operator = operators[(int) (Math.random() * operators.length)];
-        String question = "Question: " + num1 + " " + operator + " " + num2;
+        String operator = OPERATORS[Utils.generateRandomInt(OPERATORS.length)];
+        String question = num1 + " " + operator + " " + num2;
 
-        int answer;
-        if (operator == '-') {
-            answer = num1 - num2;
-        } else if (operator == '+') {
-            answer = num1 + num2;
-        } else { // *
-            answer = num1 * num2;
-        }
+        int answer = switch (operator) {
+            case "-" -> num1 - num2;
+            case "+" -> num1 + num2;
+            default -> num1 * num2;
+        };
 
         return new String[] {question, Integer.toString(answer)};
     }

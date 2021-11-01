@@ -11,9 +11,7 @@ public class Engine {
         // print rule
         System.out.println(rule);
 
-        final int maxCorrectAnswers = App.QUESTIONS_NUM;
         Scanner sc = new Scanner(System.in);
-        int numOfCorrectAnswers = 0;
 
         // game loop
         for (int i = 0; i < questions.length; i++) {
@@ -22,7 +20,7 @@ public class Engine {
             String correctAnswer = questions[i][1];
 
             // print question
-            System.out.println(question);
+            System.out.println("Question: " + question);
 
             // input
             System.out.print("Your answer: ");
@@ -30,7 +28,6 @@ public class Engine {
 
             // check answer
             if (answer.equals(correctAnswer)) {
-                numOfCorrectAnswers++;
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '"
@@ -38,12 +35,8 @@ public class Engine {
 
                 return;
             }
-
-            // check answerNums
-            if (numOfCorrectAnswers == maxCorrectAnswers) {
-                System.out.println("Congratulations, " + username + "!");
-                return;
-            }
         }
+
+        System.out.println("Congratulations, " + username + "!");
     }
 }

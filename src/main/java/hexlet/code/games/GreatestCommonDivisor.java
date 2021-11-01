@@ -2,17 +2,20 @@ package hexlet.code.games;
 
 import hexlet.code.App;
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class GreatestCommonDivisor  {
+
+    private static final String RULE = "Find the greatest common divisor of given numbers.";
+
     public static String getRule() {
-        return "Find the greatest common divisor of given numbers.";
+        return RULE;
     }
 
     public static String[] generateQuestionAndAnswer() {
-        final int maxNumber = 50;
-        int num1 = (int) (Math.random() * maxNumber);
-        int num2 = (int) (Math.random() * maxNumber);
-        String question = "Question: " + num1 + " " + num2;
+        int num1 = Utils.generateRandomInt(Utils.GCD_MAX_NUMBER);
+        int num2 = Utils.generateRandomInt(Utils.GCD_MAX_NUMBER);
+        String question = num1 + " " + num2;
 
         int answer = euclidianGreatesCommonDivisor(num1, num2);
         return new String[] {question, Integer.toString(answer)};
@@ -28,18 +31,6 @@ public class GreatestCommonDivisor  {
         Engine.startGame(getRule(), questions);
     }
 
-    private static int findGreatesCommonDivisor(int num1, int num2) {
-        int gcd = 1;
-
-        int max = Math.max(num1, num2);
-        for (int i = 2; i <= max; i++) {
-            if (num1 % i == 0 && num2 % i == 0) {
-                gcd = i;
-            }
-        }
-
-        return gcd;
-    }
 
     private static int euclidianGreatesCommonDivisor(int a, int b) {
         if (a == 0) {
