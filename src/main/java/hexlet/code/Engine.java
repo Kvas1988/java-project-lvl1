@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Engine {
 
+    public static final int QUESTIONS_NUM = 3;
+
     public static void startGame(String rule, String[][] questions) {
 
         String username = Cli.getUsername();

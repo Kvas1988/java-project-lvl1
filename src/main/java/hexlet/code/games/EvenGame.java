@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
@@ -21,7 +20,7 @@ public class EvenGame {
 
 
     public static void generateAndRunGame() {
-        String[][] questions = new String[App.QUESTIONS_NUM][2];
+        String[][] questions = new String[Engine.QUESTIONS_NUM][2];
 
         for (int i = 0; i < questions.length; i++) {
             questions[i] = generateQuestionAndAnswer();

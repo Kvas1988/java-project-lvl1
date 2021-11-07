@@ -1,8 +1,9 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
+
+import java.util.NoSuchElementException;
 
 public class Calculator {
 
@@ -13,7 +14,7 @@ public class Calculator {
         return RULE;
     }
 
-    public static String[] generateQuestionAndAnswer() {
+    public static String[] generateQuestionAndAnswer() throws NoSuchElementException {
         int num1 = Utils.generateRandomInt(Utils.CALC_MAX_NUMBER);
         int num2 = Utils.generateRandomInt(Utils.CALC_MAX_NUMBER);
 
@@ -23,14 +24,15 @@ public class Calculator {
         int answer = switch (operator) {
             case "-" -> num1 - num2;
             case "+" -> num1 + num2;
-            default -> num1 * num2;
+            case "*" -> num1 * num2;
+            default -> throw new NoSuchElementException("Unknown operator:" + operator);
         };
 
         return new String[] {question, Integer.toString(answer)};
     }
 
     public static void generateAndRunGame() {
-        String[][] questions = new String[App.QUESTIONS_NUM][2];
+        String[][] questions = new String[Engine.QUESTIONS_NUM][2];
 
         for (int i = 0; i < questions.length; i++) {
             questions[i] = generateQuestionAndAnswer();

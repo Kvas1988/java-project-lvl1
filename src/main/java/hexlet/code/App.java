@@ -18,8 +18,6 @@ public class App {
     static final String PRIME_NUM = "6";
     static final String EXIT_NUM = "0";
 
-    public static final int QUESTIONS_NUM = 3;
-
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
